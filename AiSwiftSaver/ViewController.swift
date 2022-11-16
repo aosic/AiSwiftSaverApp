@@ -13,6 +13,16 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 如何判断mac 刘海屏
+        if #available(macOS 12.0, *) {
+            if let v = NSScreen.main?.safeAreaInsets {
+                print(v)
+                //Optional(__C.NSEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0))
+                //Optional(__C.NSEdgeInsets(top: 32.0, left: 0.0, bottom: 0.0, right: 0.0))
+                //Optional(__C.NSEdgeInsets(top: 28.0, left: 0.0, bottom: 0.0, right: 0.0))
+                //Optional(__C.NSEdgeInsets(top: 24.0, left: 0.0, bottom: 0.0, right: 0.0))
+            }
+        }
         view.wantsLayer = true
         view.layer?.backgroundColor = .black
         view.addSubview(wordClock)
